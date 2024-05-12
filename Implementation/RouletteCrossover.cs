@@ -30,7 +30,7 @@ namespace PRORR.Implementation
             {
                 Individual parent1 = population.Individuals[randomGenerator.NextWeighted(fitnesses)];
                 Individual parent2 = population.Individuals[randomGenerator.NextWeighted(fitnesses)];
-                newPopulation.Individuals.Add(GetIndividual(parent1, parent2));
+                newPopulation.Individuals[i] = GetIndividual(parent1, parent2);
             });
 
             iteration++;

@@ -13,8 +13,9 @@ namespace PRORR.Implementation
         private Polynomial polynomial;
         private int threads = 1;
 
-        public PolynomialEvaluator(Polynomial polynomial)
+        public PolynomialEvaluator(int threads, Polynomial polynomial)
         {
+            this.threads = threads;
             this.polynomial = polynomial;
         }
 

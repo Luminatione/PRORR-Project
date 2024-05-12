@@ -24,13 +24,13 @@ namespace PRORR
             for (int i = 0; i < configuration.MaxGenerations; i++)
             {
                 configuration.Evaluator.EvaluatePopulation(population);
-                population = configuration.Crossover.Crossover(population, configuration.MutationController);
+                population = configuration.Crossover.Crossover(population);
             }
         }
 
         public Individual GetBestIndividual()
         {
-            return population.Individuals.OrderByDescending(i => i.Fitness).First();
+            return population.Individuals.OrderBy(i => i.Fitness).First();
         }
     }
 }

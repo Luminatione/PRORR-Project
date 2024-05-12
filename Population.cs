@@ -22,7 +22,7 @@ namespace PRORR
 
         public Population(int populationSize)
         {
-            Individuals = new List<Individual>(populationSize);
+            Individuals = new List<Individual>(new Individual[populationSize]);
         }
     }
 }
