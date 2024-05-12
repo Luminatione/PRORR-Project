@@ -18,7 +18,7 @@ namespace PRORR.Implementation
         {
             Parallel.ForEach(population.Individuals, new ParallelOptions { MaxDegreeOfParallelism = threads }, individual =>
             {
-                individual.Fitness = polynomial.Calculate(individual.Genes);
+                individual.Fitness = 1 / polynomial.Calculate(individual.Genes);
             });
         }
     }

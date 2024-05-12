@@ -24,7 +24,7 @@ namespace PRORR
 
         public Individual GetBestIndividual()
         {
-            return population.Individuals.OrderBy(i => i.Fitness).First();
+            return population.Individuals.OrderByDescending(i => i.Fitness).First();
         }
     }
 }
