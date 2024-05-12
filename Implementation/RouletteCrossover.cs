@@ -1,9 +1,4 @@
 ﻿using PRORR.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PRORR.Implementation
 {
@@ -26,7 +21,7 @@ namespace PRORR.Implementation
             Population newPopulation = new Population(population.Individuals.Count);
             float[] fitnesses = population.Individuals.Select(i => i.Fitness).ToArray();
 
-            Parallel.For(0, population.Individuals.Count, new ParallelOptions { MaxDegreeOfParallelism = threads}, i =>
+            Parallel.For(0, population.Individuals.Count, new ParallelOptions { MaxDegreeOfParallelism = threads }, i =>
             {
                 Individual parent1 = population.Individuals[randomGenerator.NextWeighted(fitnesses)];
                 Individual parent2 = population.Individuals[randomGenerator.NextWeighted(fitnesses)];
@@ -42,7 +37,7 @@ namespace PRORR.Implementation
             float[] genes = new float[parent1.Genes.Length];
             for (int i = 0; i < genes.Length; i++)
             {
-                genes[i] =  randomGenerator.Next(0, 1) < 0.5f ? parent1.Genes[i] : parent2.Genes[i];
+                genes[i] = randomGenerator.Next(0, 1) < 0.5f ? parent1.Genes[i] : parent2.Genes[i];
             }
 
             Individual individual = new Individual(genes);
