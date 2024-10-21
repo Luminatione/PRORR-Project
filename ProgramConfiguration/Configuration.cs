@@ -1,5 +1,6 @@
 ﻿using PRORR.Implementation;
 using PRORR.Interfaces;
+using PRORR.Utility;
 
 namespace PRORR.ProgramConfiguration
 {
@@ -13,6 +14,7 @@ namespace PRORR.ProgramConfiguration
         public IEvaluator Evaluator { get; set; }
         public ICrossover Crossover { get; set; }
         public IRandomGenerator RandomGenerator { get; set; }
+        public FloatRange FirstRange { get; set; }
 
         public static Configuration? GetConfiguration(string[] args)
         {
@@ -53,6 +55,7 @@ namespace PRORR.ProgramConfiguration
             configuration.IndividualGenerator = new RandomIndividualGenerator(randomGenerator, task.Ranges);
             configuration.Crossover = new RouletteCrossover(threads, randomGenerator, mutationController);
             configuration.Evaluator = new PolynomialEvaluator(threads, task.Polynomial);
+            configuration.FirstRange = task.Ranges[0];
             return configuration;
         }
     }

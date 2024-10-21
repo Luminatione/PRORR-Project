@@ -2,6 +2,8 @@ using OxyPlot;
 using OxyPlot.Legends;
 using OxyPlot.Series;
 using OxyPlot.WindowsForms;
+using PRORR;
+using PRORR.Utility;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -31,6 +33,29 @@ public class FitnessVisualizer
         var form = new Form
         {
             Text = "Fitness Visualization",
+            Width = 800,
+            Height = 600
+        };
+
+        form.Controls.Add(plotView);
+        Application.Run(form);
+    }
+
+    public void VisualizePolynomial(Polynomial polynomial, FloatRange floatRange, int degree)
+    {
+        var plotModel = new PlotModel { Title = "Polynomial" };
+        var series = new LineSeries { Title = "Polynomial", Color = OxyColors.Blue };
+        for (int i = (int) floatRange.Min; i <= floatRange.Max; ++i)
+        {
+            series.Points.Add(new DataPoint(i, polynomial.Calculate(Enumerable.Repeat((float)i, degree).ToArray())));
+        }
+
+        plotModel.Series.Add(series);
+
+        var plotView = new PlotView { Model = plotModel, Dock = DockStyle.Fill };
+        var form = new Form
+        {
+            Text = "Polynomial Visualization",
             Width = 800,
             Height = 600
         };

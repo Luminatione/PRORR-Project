@@ -1,4 +1,5 @@
-﻿using PRORR.ProgramConfiguration;
+﻿using PRORR.Implementation;
+using PRORR.ProgramConfiguration;
 
 namespace PRORR
 {
@@ -28,6 +29,7 @@ namespace PRORR
             }
             var visualizer = new FitnessVisualizer();
             visualizer.VisualizeFitness(minFitnessList, maxFitnessList, meanFitnessList);
+            visualizer.VisualizePolynomial((configuration.Evaluator as PolynomialEvaluator).Polynomial, configuration.FirstRange, configuration.Degree);
         }
 
         public Individual GetBestIndividual()

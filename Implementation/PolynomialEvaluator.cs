@@ -5,6 +5,8 @@ namespace PRORR.Implementation
 {
     public class PolynomialEvaluator : IEvaluator
     {
+        public Polynomial Polynomial => polynomial;
+
         private Polynomial polynomial;
         private int threads = 1;
 
