@@ -4,6 +4,7 @@ namespace PRORR.ProgramConfiguration
 {
     public class Task
     {
+        public int Degree { get; set; }
         public Polynomial Polynomial { get; set; }
         public FloatRange[] Ranges { get; set; }
 
@@ -19,6 +20,7 @@ namespace PRORR.ProgramConfiguration
 
                 return new Task
                 {
+                    Degree = int.Parse(lines[0]),
                     Polynomial = polynomial,
                     Ranges = floatRanges
                 };

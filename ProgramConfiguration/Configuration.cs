@@ -5,6 +5,7 @@ namespace PRORR.ProgramConfiguration
 {
     public class Configuration
     {
+        public int Degree { get; set; }
         public int PopulationSize { get; set; }
         public int ChromosomeLength { get; set; }
         public int MaxGenerations { get; set; }
@@ -48,7 +49,7 @@ namespace PRORR.ProgramConfiguration
             Configuration configuration = new Configuration();
             configuration.MaxGenerations = algorithmConfiguration.MaxGenerations;
             configuration.PopulationSize = algorithmConfiguration.PopulationSize;
-            configuration.ChromosomeLength = task.Ranges.Length;
+            configuration.Degree = task.Degree;
             configuration.IndividualGenerator = new RandomIndividualGenerator(randomGenerator, task.Ranges);
             configuration.Crossover = new RouletteCrossover(threads, randomGenerator, mutationController);
             configuration.Evaluator = new PolynomialEvaluator(threads, task.Polynomial);

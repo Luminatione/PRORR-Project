@@ -2,6 +2,6 @@
 {
     public interface IEvaluator
     {
-        void EvaluatePopulation(Population population);
+        void EvaluatePopulation(Population population, int degree);
     }
 }

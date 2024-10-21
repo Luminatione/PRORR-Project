@@ -20,9 +20,14 @@
             float result = 0;
             for (int i = 0; i < coefficients.Length; i++)
             {
-                result += coefficients[i] * (float)Math.Pow(variables[i], exponents[i]);
+                result += coefficients[i] * (float)Math.Pow(variables[0], exponents[i]);
             }
             return result;
+        }
+
+        public int GetLength()
+        {
+            return exponents.Length;
         }
     }
 }

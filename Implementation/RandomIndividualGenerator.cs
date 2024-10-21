@@ -19,7 +19,7 @@ namespace PRORR.Implementation
             Individual individual = new Individual(geneCount);
             for (int i = 0; i < geneCount; i++)
             {
-                individual.Genes[i] = randomGenerator.Next(ranges[i].Min, ranges[i].Max);
+                individual.Genes[i] = randomGenerator.Next(ranges[0].Min, ranges[0].Max);
             }
             return individual;
         }

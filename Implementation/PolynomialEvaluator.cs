@@ -14,11 +14,11 @@ namespace PRORR.Implementation
             this.polynomial = polynomial;
         }
 
-        public void EvaluatePopulation(Population population)
+        public void EvaluatePopulation(Population population, int degree)
         {
             Parallel.ForEach(population.Individuals, new ParallelOptions { MaxDegreeOfParallelism = threads }, individual =>
-            {
-                individual.Fitness = 1 / polynomial.Calculate(individual.Genes);
+            { 
+                individual.Fitness = polynomial.Calculate(Enumerable.Repeat(individual.Genes[0], degree).ToArray());
             });
         }
     }

@@ -43,7 +43,7 @@ namespace PRORR.Implementation
                     return i;
                 }
             }
-            throw new InvalidOperationException("The sum of the weights must be greater than zero.");
+            return weights.Length - 1;
         }
     }
 }

@@ -2,6 +2,6 @@
     "MutationStdDev": 0.1,
     "MutationMean": 0.5,
     "MutationRate": 0.01,
-    "PopulationSize": 100,
-    "MaxGenerations": 500
+    "PopulationSize": 500,
+    "MaxGenerations": 3000
 }

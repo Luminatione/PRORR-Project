@@ -37,7 +37,7 @@ namespace PRORR.Implementation
             float[] genes = new float[parent1.Genes.Length];
             for (int i = 0; i < genes.Length; i++)
             {
-                genes[i] = randomGenerator.Next(0, 1) < 0.5f ? parent1.Genes[i] : parent2.Genes[i];
+                genes[i] = (int) (randomGenerator.Next(0, 1) < 0.5f ? parent1.Genes[i] : parent2.Genes[i]);
             }
 
             Individual individual = new Individual(genes);
